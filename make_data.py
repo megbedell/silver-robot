@@ -1,3 +1,7 @@
+'''
+Just a dumb script to get data from MB's computer and write it in usable form.
+'''
+
 import numpy as np
 from astropy.table import Table
 
@@ -30,7 +34,7 @@ sp_names = gce['element']
 for i,sp in enumerate(sp_names):
     t[sp] = a[sp+'_1']  - par['feh']
     t[sp+'_err'] = a['err_'+sp]
-    t[sp+'_gce'] = a_gce[sp+'Fe']
-    t[sp+'_gce_err'] = a_gce['err_'+sp]    
+    t[sp+'_gce'] = np.append(a_gce[sp+'Fe'], 0.0)
+    t[sp+'_gce_err'] = np.append(a_gce['err_'+sp], 0.0)  
     
-t.write('star_data.fits', format='fits')    
+t.write('star_data.fits', format='fits', overwrite=True)    
