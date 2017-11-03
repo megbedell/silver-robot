@@ -13,11 +13,14 @@ def plot_page(sp, other_sp, data):
     n = int(math.ceil(np.sqrt(len(other_sp))))
     x = data[sp]
     x_err = data[sp+'_err']
+    thick = data['thick_disk']
+    thin = np.invert(thick)
     for i,sp2 in enumerate(other_sp):
         ax = fig.add_subplot(n, n, i+1)
         y = data[sp2]
         y_err = data[sp2+'_err']
-        ax.errorbar(x, y, xerr=x_err, yerr=y_err, fmt='o', c='black', ecolor='black', ms=3, elinewidth=0.6)
+        ax.errorbar(x[thin], y[thin], xerr=x_err[thin], yerr=y_err[thin], fmt='o', c='black', ecolor='black', ms=3, elinewidth=0.6)
+        ax.errorbar(x[thick], y[thick], xerr=x_err[thick], yerr=y_err[thick], fmt='o', c='red', ecolor='red', ms=3, elinewidth=0.6)
         ax.set_ylabel('['+sp2+'/Fe]', fontsize=10)
         ax.set_xlabel('['+sp+'/Fe]', fontsize=10)
         ax.tick_params(length=5, width=0.8, labelsize=7, which='major', pad=2)
