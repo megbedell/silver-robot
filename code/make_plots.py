@@ -40,8 +40,8 @@ def plot_page(sp, other_sp, data):
 
 if __name__ == "__main__":
     from astropy.table import Table
-    data = Table.read('star_data.fits', format='fits')
-    
+    data = Table.read('../data/star_data.fits', format='fits')
+
     sp_names = np.asarray(['CI', 'CH', 'OI', 'NaI', 'MgI', 'AlI', 'SiI', 'SI', 'CaI', 'ScI',
        'ScII', 'TiI', 'TiII', 'VI', 'CrI', 'CrII', 'MnI', 'CoI', 'NiI',
        'CuI', 'ZnI', 'SrI', 'YII', 'ZrII', 'BaII', 'LaII', 'CeII', 'PrII',
