@@ -41,12 +41,22 @@ y_n &=& \mu + W\cdot x_n + \delta_n + \epsilon_n
 \\
 p(\delta_n\given q^2) &=& N(\delta\given 0, q^2\,I)
 \\
-p(\epsilon_n) &=& N(\epsilon\given 0, \sigma_n^2)
+p(\epsilon_n) &=& N(\epsilon\given 0, C_n)
 \\
 p(x_n) &=& N(x_n\given 0, I)
 \\
-p(y_n\given \mu,W,q^2) &=& N(y_n\given \mu, W\cdot\trans{W}+q^2\,I)
+p(y_n\given \mu,W,q^2) &=& N(y_n\given \mu, W\cdot\trans{W}+q^2\,I+C_n)
+\quad ,
 \end{eqnarray}
+where the data point $y_n$ is a $D$-vector,
+$W$ is a $D\times K$ rectangular matrix,
+$x_n$ is a $K$-vector,
+$\delta_n$ is a deviation due to intrinsic variance,
+$\epsilon_n$ is a deviation due to measurement noise,
+$q^2$ is an intrinsic variance,
+$I$ is the $D\times D$ identity tensor,
+$C_n$ is the noise variance tensor for data point $y_n$,
+and we have marginalized out all but $\mu,W,q^2$ at the end.
 
 Is there any sense in which the eigen-directions look like SNe yields?
 Or nucleosynthetic yields from processes?
