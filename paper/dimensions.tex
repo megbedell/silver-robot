@@ -1,5 +1,9 @@
 \documentclass[12pt]{article}
 
+% math
+\newcommand{\given}{\,|\,}
+\newcommand{\trans}[1]{{#1}^{\!\mathsf{T}}}
+
 \begin{document}
 
 \section{Introduction}
@@ -12,13 +16,40 @@ Open clusters show great homogeneity, so intra-cloud mixing must be good.
 
 Therefore, stars cannot span a huge space in chemical abundances.
 
-Here we test this with the best possible data set at the present day.
+Indeed, this conclusion has been arrived at previously in theory, and
+the dimensionality has been measured before in data. The measurements to
+date suffer from significant issues: precision, methodology.
 
-All the reasons twins are good.
+Here we test this with the best possible data set at the present day:
+All the reasons these twins are good.
 
 \section{Data}
 
+Bedell!
+
+Show (some of) the 900 plots here; they justify the precision claims.
+
 \section{Experiments and results}
+
+PCA first; it is highly suggestive. Take then the opportunity to cricize PCA.
+
+Something like HMF next. State the model and assumptions. Make it such that
+there is an excess variance parameter that is being estimated. Etc.
+Something like:
+\begin{eqnarray}
+y_n &=& \mu + W\cdot x_n + \delta_n + \epsilon_n
+\\
+p(\delta_n\given q^2) &=& N(\delta\given 0, q^2\,I)
+\\
+p(\epsilon_n) &=& N(\epsilon\given 0, \sigma_n^2)
+\\
+p(x_n) &=& N(x_n\given 0, I)
+\\
+p(y_n\given \mu,W,q^2) &=& N(y_n\given \mu, W\cdot\trans{W}+q^2\,I)
+\end{eqnarray}
+
+Is there any sense in which the eigen-directions look like SNe yields?
+Or nucleosynthetic yields from processes?
 
 \section{Discussion}
 
