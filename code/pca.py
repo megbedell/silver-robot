@@ -54,7 +54,8 @@ if __name__ == "__main__":
     plt.ylabel("contribution to variance")
     plt.savefig("pca001.png")
 
-    for i, j in [(0, 1), (3, 4), (9, 10), (20, 21)]:
+    for i in range(D - 1):
+        j = i + 1
         plt.clf()
         plt.plot(pcas[:,i], pcas[:,j], "k.")
         plt.xlabel("pca {:02d}".format(i))
