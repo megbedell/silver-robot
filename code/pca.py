@@ -37,7 +37,7 @@ if __name__ == "__main__":
     good = np.isfinite(rectangle)
     bad = ~good
     mask = np.sum(bad, axis=1) == 0
-    rectangle = np.pow(10., rectangle[mask]) # taking off the logs
+    rectangle = np.power(10., rectangle[mask]) # taking off the logs
 
     # PCA the fuck out of shit.
     mean = np.mean(rectangle, axis=0)
