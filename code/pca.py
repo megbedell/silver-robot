@@ -48,6 +48,9 @@ if __name__ == "__main__":
     reconstruction = mean[None, :] + np.dot(pcas, v)
     print (u.shape, s.shape, v.shape)
 
+    # reformat eigenvectors back into log space
+    log10v = (v / mean[:,None]) / np.log(10.)
+
     # plot eigenvectors in abundance space
     #   many people died to tell us that v[3,:] (say) is the third eigenvector
     #   (and not v[:, 3])
@@ -56,7 +59,7 @@ if __name__ == "__main__":
         plt.axhline(0., color="k", alpha=0.5)
         for d in range(D):
             plt.axvline(d, color="k", alpha=0.2)
-        plt.plot(np.log10(v[i,:]), "ko") # putting logs back on
+        plt.plot(log10v[i,:], "ko") # putting logs back on
         plt.xlabel("elemnent")
         plt.xticks(range(D), sp_names, rotation="vertical")
         plt.ylabel("log10 amplitude in eigenvector")
