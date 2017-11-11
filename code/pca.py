@@ -11,6 +11,7 @@ issues:
 - Needs to do cross-validation: For each K, for each n in N, for each d in D!
 - Need to patch rather than exclude missing abundance.
 - Ought to save to files and plotting should be perfomed in a separate file.
+- Search for HACK and MAGIC and QUESTION
 '''
 
 import math
@@ -53,8 +54,10 @@ if __name__ == "__main__":
         print (u.shape, s.shape, v.shape)
 
         # reformat eigenvectors back into log space, if necessary
+        # QUESTION: do we divide by the mean or by the Solar values?
         if prefix == "linear":
-            log10v = (v / mean[:,None]) / np.log(10.)
+            # log10v = (v / mean[:,None]) / np.log(10.) # dvide by the mean
+            log10v = (v / np.ones_like(v)) / np.log(10.) # divide by the Sun - no-op
         else:
             log10v = v
 
@@ -75,7 +78,6 @@ if __name__ == "__main__":
             for d in range(D):
                 plt.axvline(d, color="k", alpha=0.2)
             plt.plot(log10v[i,:], "ko") # putting logs back on
-            plt.xlabel("elemnent")
             plt.xticks(range(D), sp_names, rotation="vertical")
             plt.ylabel("amplitude in eigenvector (dex)")
             plt.title("eigenvector {:02d}, {} analysis".format(i, prefix))
