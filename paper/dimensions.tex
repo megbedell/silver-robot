@@ -65,4 +65,41 @@ Or nucleosynthetic yields from processes?
 
 \section{Discussion}
 
+\appendix
+\section{Linear vs log space}
+
+Almost all work on element abundances works in log (base 10), and most is
+relative to Solar.
+If we assume that there are a finite number $K$ of nucleosynthetic pathways,
+and that each of those pathways produces elements in nearly fixed
+ratios of atoms or mass, then the abundances will lie in a $K$-dimensional
+subspace (or lower).
+This subspace will only appear as a strictly linear subspace (that is, strictly
+spanned by $K$ vectors) in linear ratios of elements.
+These linear ratios can be mass ratios or atomic number ratios, and they can be ratioed
+to other elements or Solar abundances, but without taking logarithms.
+
+If the dimensionality of the element abundance linear subspace is $K$, and the
+subspace is searched for with a linear algorithm but in the logarithmic element
+abundances, then in principle more than $K$ significant dimensions or vectors
+will be required to span the space of the data.
+This is because a linear subspace in the linear data will obtain some curvature
+when the logs are taken, and that curvature will be in directions that are orthogonal
+to the subspace (in general).
+
+For these reasons, in this paper, when we perform the dimensionality reduction,
+we take the (log) abundances back to linear, perform the dimensionality reduction
+in the linear space, and then transform the output so that it can be interpreted
+logarithmically.
+This latter transformation---of eigenvectors in the linear space to equivalents
+in the log space---works as follows:
+
+[Give equation and derivaton here.]
+
+The amusing thing about all this, in the context of the project reported in this paper,
+is that the spread in chemical abundances is very small in the sample.
+In the limit of infinitesimal element-abundance spreads, there will be no differences
+between the properly transformed linear eigenvectors and logarithmic space eigenvectors.
+We demonstrate this in Figure~XXX.
+
 \end{document}
